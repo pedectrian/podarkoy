@@ -1,0 +1,35 @@
+/* Feedback */
+ul#feedback_list { margin-top: 2em; list-style-type: none }
+ul#feedback_list li {
+	background: #d0d3d8 url("../img/block_category_item_bg.jpg") repeat-x;
+	border: solid 1px #d0d3d8;
+	padding: 6px;
+	min-height: 50px;
+	height: auto;
+	clear: both;
+	margin-bottom: 0.3em
+}
+* html ul#feedback_list li {
+	height: auto !important;
+	height: 50px
+}
+.feedbackreply {
+	background-color: #cef2ca; 
+	font-style: italic;
+	color: #339966
+}
+/* Block feedback */
+.feedbackpen {
+	background: url("../img/icon/feedback-pen.png") no-repeat 0;
+	padding:10px 0 0 40px;
+	height: 25px;
+	color: #595a5e;
+	text-align: left;
+}
+.feedbackeye {
+	background: url("../img/icon/feedback-eye.png") no-repeat 0;
+	padding:6px 0 0 40px;
+	height: 20px;
+	color: #595a5e;
+	text-align: left
+}

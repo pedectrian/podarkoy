@@ -1,0 +1,106 @@
+#footer .block_various_links
+{
+	list-style: none;
+}
+#footer .block_various_links LI A
+{
+	text-decoration: none;
+}
+#footer .block_various_links LI A:hover
+{
+	text-decoration: underline;
+}
+#footer .block_various_links LI
+{
+	display: inline;
+	border-left: 1px solid #988C6E;
+	padding: 0 2px 0 4px;
+}
+#footer .block_various_links LI.first_item
+{
+	border: none;
+	padding-left: 0;
+}
+/*Block CMS links*/
+.informations_block_left .block_content
+{
+	padding-top: 3px;
+}
+/*footer_logos*/
+#footer UL#footer_logos
+{
+	float: left;
+	list-style: none;
+	margin: 50px 0 10px 10px;
+}
+#footer_logos LI
+{
+	float: left;
+	margin-left: 10px;
+}
+#footer_logos LI A
+{
+	display: block;
+	color: #493636;
+	text-decoration: none;
+}
+#footer_logos LI A.vkontakte
+{
+	background: url("../../../img/footer_logos/vkontakte.png") no-repeat;
+	width: 30px;
+	height: 27px;
+	text-indent: -9999px;
+	margin-top: 30px;
+}
+#footer_logos LI A.contact
+{
+	background: url("../../../img/footer_logos/contact.png") no-repeat;
+	width: 40px;
+	height: 27px;
+	text-indent: -9999px;
+	margin-top: 30px;
+}
+#footer_logos LI A.home
+{
+	background: url("../../../img/footer_logos/home.png") no-repeat;
+	width: 35px;
+	height: 27px;
+	text-indent: -9999px;
+	margin-top: 30px;
+}
+#footer_logos LI A.fcenter
+{
+	background: url("../../../../../img/logo.png") no-repeat;
+	width: 200px;
+	height: 110px;
+	text-indent: -9999px;
+	margin-left: 230px;
+}
+#footer_logos LI A.fright
+{
+	background: url("../../../img/footer_logos/book.png") no-repeat;
+	width: 130px;
+	height: 77px;
+	text-indent: -9999px;
+	margin-left: 200px;
+}
+#footer_logos LI A.vkontakte:hover
+{
+	background-position: left bottom;
+}
+#footer_logos LI A.contact:hover
+{
+	background-position: left bottom;
+}
+#footer_logos LI A.home:hover
+{
+	background-position: left bottom;
+}
+#footer_logos LI A.fcenter:hover
+{
+	background-position: left bottom;
+}
+#footer_logos LI A.fright:hover
+{
+	background-position: left bottom;
+}

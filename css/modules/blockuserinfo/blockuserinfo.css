@@ -1,0 +1,60 @@
+/*block top user information*/
+#header_right #header_user
+{
+	float: right;
+	width: 235px;
+	text-align: right;
+	margin-right: 6px;
+	font-size: 10px;
+	height: 140px;
+}
+#header_user P
+{
+	color: #493636;
+}
+#header_user SPAN
+{
+	font-weight: bold;
+}
+#header_user UL
+{
+}
+#header_user LI
+{
+	float: right;
+	line-height: 2em;
+	margin-left: 0.5em;
+	white-space: nowrap;
+}
+#header_user #shopping_cart, #header_user #your_account
+{
+}
+#header_user LI#shopping_cart
+{
+	padding: 13px 0 13px 47px;
+	line-height: 1.6em;
+	height: 50px;
+}
+#header_user LI#your_account
+{
+	margin-left: 0;
+}
+#header_user #shopping_cart A, #header_user #your_account A
+{
+	background-repeat: no-repeat;
+	background-position: top left;
+	height: 20px;
+	text-decoration: none;
+}
+#header_user #shopping_cart A:hover, #header_user #your_account A:hover
+{
+	text-decoration: underline;
+}
+.cartnoproducts
+{
+	background: url("../../../img/cart/cartno.png") no-repeat;
+}
+.cartproducts
+{
+	background: url("../../../img/cart/cart.png") no-repeat;
+}

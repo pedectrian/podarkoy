@@ -1,0 +1,14 @@
+/*contact-form.tpl*/
+BODY#contact-form FORM INPUT#email, BODY#contact-form DIV#center_column FORM SELECT#id_contact, BODY#contact-form DIV#center_column FORM TEXTAREA#message
+{
+	width: 70%;
+}
+FORM.std P.desc_contact SPAN.like_input
+{
+	width: 366px;
+	text-align: left;
+}
+DIV#center_column
+{
+	width: 750px;
+}
