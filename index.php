@@ -21,18 +21,11 @@ get_header(); ?>
         <?php if(is_front_page()) : ?>
             <div class="content">
                 <div class="lblock">
-                    <span class="titlelblock">Каталог</span>
+
                     <noindex>
-                        <a href="/catalog/kartiny-swarovski" rel="nofollow">Картины SWAROVSKI</a>
-                        <a href="/catalog/shkatulki" rel="nofollow">Шкатулки</a>
-                        <a href="/catalog/manikyurnyy-nabor" rel="nofollow">Маникюрные наборы</a>
-                        <a href="/catalog/predmety-interera" rel="nofollow">Предметы интерьера</a>
-                        <a href="/catalog/kartiny" rel="nofollow">Картины</a>
-                        <a href="/catalog/statuetki" rel="nofollow">Статуэтки</a>
-                        <a href="/catalog/fotoalbomy" rel="nofollow">Фотоальбомы</a>
-                        <a href="/catalog/nabor-dlya-spirtnogo" rel="nofollow">Наборы для спиртного</a>
-                        <a href="/catalog/ikony1" rel="nofollow">Иконы</a>
+                        <?php dynamic_sidebar( 'sidebar-4' ); ?>
                     </noindex>
+
                 </div>
                 <div class="sliderblock">
 
