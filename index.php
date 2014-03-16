@@ -47,16 +47,7 @@ get_header(); ?>
                 <div class="clear"></div>
             </div>
             <div class="content new">
-<!--                <div class="lastcomment">-->
-<!--                    <p class="titleblock">Покупатели пишут:</p>-->
-<!--                    [!JotX? &action=`comments` &subscribe=`0` &pagination=`5` &moderated=`1` &docid=`*`!]-->
-<!--                </div>-->
                 <?php dynamic_sidebar( 'sidebar-1' ); ?>
-                <div class="clear"></div>
-            </div>
-            <div class="content hits">
-                <p class="titleblock">Новинки:</p>
-                [!Ditto? &startID=`2` &depth=`2` &tpl=`new-item` &filter=`tvprinadl,,1` &hideFolders=`1` &sortDir=`desc` &paginate=`0` &display=`5` &randomize=`1`!]
                 <div class="clear"></div>
             </div>
         <?php endif; ?>

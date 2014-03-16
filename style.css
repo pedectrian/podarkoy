@@ -343,6 +343,7 @@ img.searchimg { margin: 0 20px 0 0;}
 	left:620px;
 }
 p.titleblock,
+.widget_products .widget-title,
 .widget_top_rated_products .widget-title {
     font-weight: bold;
     font-size: 13px;
@@ -350,6 +351,15 @@ p.titleblock,
     padding: 10px 0 0 20px;
     letter-spacing: 0.1ex;
 }
+
+.widget_products,
+.widget_top_rated_products {
+    width: 975px !important;
+    background-color:#dad3c0;
+    padding:0 0 1px 0 !important;
+    border-bottom: 1px #EEEADF solid;
+}
+
 
 /* new item */
 .newitem {
