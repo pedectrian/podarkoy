@@ -48,6 +48,9 @@ if ( ! function_exists( 'twentyfourteen_setup' ) ) :
  *
  * @since Twenty Fourteen 1.0
  */
+
+add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+
 function twentyfourteen_setup() {
 
 	/*
