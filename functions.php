@@ -641,3 +641,18 @@ if ( ! function_exists( '_podarkoy_woocommerce_default_product_tabs' ) ) {
         return $tabs;
     }
 }
+
+
+function getFooterBrands() {
+    $slug = 'brands';
+    $brandCat = get_term_by('slug', $slug, 'product_cat');
+
+    $brandsId = get_term_children( $brandCat->term_id, 'product_cat' );
+    $brands = [];
+
+    foreach($brandsId as $id) {
+        $brands[] = get_term_by('id', $id, 'product_cat');
+    }
+
+    return $brands;
+}
