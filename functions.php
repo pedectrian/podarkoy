@@ -645,13 +645,21 @@ if ( ! function_exists( '_podarkoy_woocommerce_default_product_tabs' ) ) {
 
 function getFooterBrands() {
     $slug = 'brands';
-    $brandCat = get_term_by('slug', $slug, 'product_cat');
+    $taxonomy = 'product_cat';
+    $brandCat = get_term_by( 'slug', $slug, $taxonomy );
 
-    $brandsId = get_term_children( $brandCat->term_id, 'product_cat' );
+    $brandsId = get_term_children( $brandCat->term_id, $taxonomy );
     $brands = [];
 
-    foreach($brandsId as $id) {
-        $brands[] = get_term_by('id', $id, 'product_cat');
+    foreach( $brandsId as $id ) {
+
+        $thumbnail_id = get_woocommerce_term_meta( $id, 'thumbnail_id', true );
+        
+        $brands[$id] = array(
+            'url' => get_term_link( $id, $taxonomy ),
+            'image_url' => wp_get_attachment_url( $thumbnail_id )
+        );
+
     }
 
     return $brands;
