@@ -509,6 +509,24 @@ function twentyfourteen_wp_title( $title, $sep ) {
 }
 add_filter( 'wp_title', 'twentyfourteen_wp_title', 10, 2 );
 
+
+
+add_action( '_podarkoy_woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+add_action( '_podarkoy_woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+add_action( '_podarkoy_woocommerce_single_product_summary', 'woocommerce_template_single_meta', 15 );
+//add_action( '_podarkoy_woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+add_action( '_podarkoy_woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 25 );
+
+/**
+ * Product page tabs
+ */
+add_filter( '_podarkoy_woocommerce_product_tabs', '_podarkoy_woocommerce_default_product_tabs' );
+add_filter( '_podarkoy_woocommerce_product_tabs', 'woocommerce_sort_product_tabs', 99 );
+
+
+add_action( '_podarkoy_woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+add_action( '_podarkoy_woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+
 // create custom plugin settings menu
 add_action('admin_menu', 'podarkoy_create_menu');
 
@@ -526,6 +544,7 @@ function register_mysettings() {
     //register our settings
     register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_slogan' );
     register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_phone' );
+    register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_working_hours' );
 
     register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_ya_metrika' );
     register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_ya_informer' );
@@ -541,13 +560,18 @@ function pod_arkoy_settings_page() {
             <?php do_settings_sections( 'pod_arkoy-settings-group' ); ?>
             <table class="form-table">
                 <tr valign="top">
-                    <th scope="row">Slogan</th>
+                    <th scope="row">Слоган</th>
                     <td><textarea style="width: 500px; height: 75px" name="pod_arkoy_slogan"><?php echo get_option('pod_arkoy_slogan'); ?></textarea></td>
                 </tr>
 
                 <tr valign="top">
-                    <th scope="row">Phone</th>
+                    <th scope="row">Телефон</th>
                     <td><input style="width: 500px;" name="pod_arkoy_phone" value="<?php echo get_option('pod_arkoy_phone'); ?>"></td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row">Часы работы</th>
+                    <td><input style="width: 500px;" name="pod_arkoy_working_hours" value="<?php echo get_option('pod_arkoy_working_hours'); ?>"></td>
                 </tr>
 
                 <tr valign="top">
@@ -566,3 +590,54 @@ function pod_arkoy_settings_page() {
         </form>
     </div>
 <?php }
+
+
+if ( ! function_exists( '_podarkoy_woocommerce_default_product_tabs' ) ) {
+
+    /**
+     * Add default product tabs to product pages.
+     *
+     * @access public
+     * @param array $tabs
+     * @return array
+     */
+    function _podarkoy_woocommerce_default_product_tabs( $tabs = array() ) {
+        global $product, $post;
+
+
+        // Additional information tab - shows attributes
+        if ( $product && ( $product->has_attributes() || ( $product->enable_dimensions_display() && ( $product->has_dimensions() || $product->has_weight() ) ) ) ) {
+            $tabs['additional_information'] = array(
+                'title'    => __( 'Additional Information', 'woocommerce' ),
+                'priority' => 10,
+                'callback' => 'woocommerce_product_additional_information_tab'
+            );
+        }
+
+        $tabs['add-to-cart'] = array(
+            'priority' => 20,
+            'callback' => 'woocommerce_template_single_add_to_cart'
+        );
+
+        // Description tab - shows product content
+        if ( $post->post_content ) {
+            $tabs['description'] = array(
+                'title'    => __( 'Description', 'woocommerce' ),
+                'priority' => 30,
+                'callback' => 'woocommerce_product_description_tab'
+            );
+        }
+
+
+        // Reviews tab - shows comments
+        if ( comments_open() ) {
+            $tabs['reviews'] = array(
+                'title'    => sprintf( __( 'Reviews (%d)', 'woocommerce' ), get_comments_number( $post->ID ) ),
+                'priority' => 40,
+                'callback' => 'comments_template'
+            );
+        }
+
+        return $tabs;
+    }
+}

@@ -439,3 +439,27 @@ button.shk-but {
     text-shadow: #ffffff 1px 1px 0;
     font-size: 14px;
 }
+.product_meta > div {
+    margin-bottom: 10px;
+}
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.product_title {
+    margin-bottom: 20px;
+}
+
+.summary {
+    min-height: 300px;
+}
+.comment-reply-title,
+.comment1-form label{
+    display: none;
+}
+
+.comment-form textarea,
+.comment-form input[type='text'] {
+    background-color: #fff; border: 1px solid #ccc; color: #555; display: inline-block; font-size: 13px; height: 18px; line-height: 18px; margin: 0; padding: 4px; width: 400px;
+    border-radius: 3px; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}

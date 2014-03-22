@@ -14,14 +14,11 @@ if ( ! defined( 'ABSPATH' ) )
 if ( ! comments_open() )
 	return;
 ?>
+</div>
+</div>
 <div id="reviews">
 	<div id="comments">
-		<h2><?php
-			if ( get_option( 'woocommerce_enable_review_rating' ) === 'yes' && ( $count = $product->get_rating_count() ) )
-				printf( _n('%s review for %s', '%s reviews for %s', $count, 'woocommerce'), $count, get_the_title() );
-			else
-				_e( 'Reviews', 'woocommerce' );
-		?></h2>
+		<h2>Добавить комментарий</h2>
 
 		<?php if ( have_comments() ) : ?>
 
@@ -38,10 +35,6 @@ if ( ! comments_open() )
 				) ) );
 				echo '</nav>';
 			endif; ?>
-
-		<?php else : ?>
-
-			<p class="woocommerce-noreviews"><?php _e( 'There are no reviews yet.', 'woocommerce' ); ?></p>
 
 		<?php endif; ?>
 	</div>
