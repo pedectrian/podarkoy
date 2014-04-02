@@ -28,9 +28,7 @@
     <meta name="keywords" content="[*longtitle*]" />
     <meta name="description" content="[*description*]" />
 
-    <!--    <link rel="stylesheet" type="text/css" href="--><?php //echo get_stylesheet_directory_uri(); ?><!--/style.css">-->
     <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" type="image/x-icon" />
-    <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>-->
 <!--    <script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js0"></script-->
 <!--    <script type="text/javascript" src="--><?php //echo get_stylesheet_directory_uri(); ?><!--/js/slides.min.jquery.js"></script>-->
 <!--    <script>-->
@@ -50,13 +48,58 @@
 
 
     <?php wp_head(); ?>
+
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/cart.js"></script>
 </head>
 <body>
 <div id="header">
     <div class="top">
         <a id="header_logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="PodArkoy - Интернет-магазин подарков"><img class="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt="PodArkoy - Интернет-магазин подарков" width="185" height="88"  /></a>
         <div class="cartblock">
-            [!Shopkeeper? &noJQuery=`1` &cartType=`small` &orderFormPage=`19` &priceTV=`price` &changePrice=`1` &counterField=`1` &style=`0` &cartHelperTpl=`shk_helper` !]
+
+            <?php if (function_exists( 'is_woocommerce' ) ) : ?>
+            <?php global $woocommerce; ?>
+            <div class="cartWrapper">
+<!--                <a class="cart-bubble cart-contents">(--><?php //echo sprintf(_n('%d', '%d', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?><!--)</a>-->
+                <?php $woocommerce->cart->get_cart_url() != '' ? $cart=$woocommerce->cart->get_cart_url() : $cart = home_url().'/cart/'; ?>
+
+                <a href="<?php echo $cart; ?>" class="cart-top"><?php echo $data['translation_cart'] ?></a>
+
+                <div id="shopCart" class="shop-cart" style="height: auto; overflow: visible;">
+                    <div id="cartInner" class="empty">
+
+                            <?php if ( sizeof( $woocommerce->cart->get_cart() ) > 0 ) : ?>
+
+                                <div class="shop-cart-body">
+                                    Товаров в корзине: <b class="cart-amount"><?php echo $woocommerce->cart->cart_contents_count; ?></b>
+                                    <p>На сумму: <b class="cart-total"><?php echo number_format($woocommerce->cart->cart_contents_total, 0, '.', ' '); ?></b> р.</p>
+                                </div>
+
+                            <?php else : ?>
+
+                                <div class="shop-cart-body" style="display: none;">
+                                    Товаров в корзине: <b class="cart-amount">0</b>
+                                    <p>На сумму: <b class="cart-total">0</b> р.</p>
+                                </div>
+                                <div id="cartEmpty">В вашей <span class="carttitle">корзине</span> пусто</div>
+
+                            <?php endif; ?>
+
+
+
+                            <div class="cart-actions" <?php echo sizeof( $woocommerce->cart->get_cart() ) > 0 ? '' : 'style="display: none;"' ?>>
+                                <?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
+
+                                <div class="cart-order"><a href="<?php echo $cart ; ?>" id="butOrder">Оформить</a></div>
+                                <div class="clear"></div>
+                                <div><a href="?clear-cart" id="butEmptyCart">Очистить корзину</a></div>
+                            </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <?php endif; ?>
         </div>
         <div id="top-menu">
             <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
@@ -77,6 +120,6 @@
             <?php get_search_form(); ?>
 
         </div>
-        <div id="loginblock">[!WebLogin? &tpl=`login` &loginhomeid=`17` &logouthomeid=`1`!]</div>
+        <div id="loginblock"></div>
     </div>
 </div>

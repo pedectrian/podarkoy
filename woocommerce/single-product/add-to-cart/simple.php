@@ -29,17 +29,17 @@ if ( ! $product->is_purchasable() ) return;
 	<form class="cart" method="post" enctype='multipart/form-data'>
 	 	<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
-<!--	 	--><?php
-//	 		if ( ! $product->is_sold_individually() )
-//	 			woocommerce_quantity_input( array(
-//	 				'min_value' => apply_filters( 'woocommerce_quantity_input_min', 1, $product ),
-//	 				'max_value' => apply_filters( 'woocommerce_quantity_input_max', $product->backorders_allowed() ? '' : $product->get_stock_quantity(), $product )
-//	 			) );
-//	 	?>
+	 	<input class="add-to-cart-id" type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
 
-	 	<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
+	 	<button type="button" class="shk-but single_add_to_cart_button button alt"><?php echo 'в корзину'; ?></button>
 
-	 	<button type="submit" class="shk-but single_add_to_cart_button button alt"><?php echo 'в корзину'; ?></button>
+        <?php
+        if ( ! $product->is_sold_individually() )
+            woocommerce_quantity_input( array(
+                'min_value' => apply_filters( 'woocommerce_quantity_input_min', 1, $product ),
+                'max_value' => apply_filters( 'woocommerce_quantity_input_max', $product->backorders_allowed() ? '' : $product->get_stock_quantity(), $product )
+            ) );
+        ?>
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>

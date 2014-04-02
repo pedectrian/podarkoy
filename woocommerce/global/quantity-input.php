@@ -9,4 +9,10 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
-<div class="quantity"><input type="number" step="<?php echo esc_attr( $step ); ?>" <?php if ( is_numeric( $min_value ) ) : ?>min="<?php echo esc_attr( $min_value ); ?>"<?php endif; ?> <?php if ( is_numeric( $max_value ) ) : ?>max="<?php echo esc_attr( $max_value ); ?>"<?php endif; ?> name="<?php echo esc_attr( $input_name ); ?>" value="<?php echo esc_attr( $input_value ); ?>" title="<?php _ex( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="input-text qty text" size="4" /></div>
+
+<div class="choose-amount">
+    <div class="shs-count" id="stuffCount">Количество: <input class="product-amount" type="text" size="2"  name="<?php echo esc_attr( $input_name ); ?>" value="1" maxlength="3" style="height: 16px; border: 1px solid rgb(136, 136, 136); vertical-align: bottom; text-align: center; padding: 1px 2px; font-size: 13px;">
+        <img class="field-arr-up" src="<?php echo get_stylesheet_directory_uri(); ?>/img/arr_up.gif" width="17" height="9" alt="" style="cursor: pointer; margin: 0px 0px 11px 1px; vertical-align: bottom;"><img class="field-arr-down" src="<?php echo get_stylesheet_directory_uri(); ?>/img/arr_down.gif" width="17" height="9" alt="" style="cursor: pointer; margin: 0px 0px 1px -17px; vertical-align: bottom;">
+    </div>
+    <div><button class="shk-but confirm-add" id="confirmButton">ОК</button><button class="shk-but cancel-amount" id="cancelButton">Отмена</button></div>
+</div>

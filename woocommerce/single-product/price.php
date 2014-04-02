@@ -16,6 +16,7 @@ global $post, $product;
 	<p class="price"><strong>Цена: </strong><?php echo $product->get_price_html(); ?></p>
 
 	<meta itemprop="price" content="<?php echo $product->get_price(); ?>" />
+    <input type="hidden" class="item-price" value="<?php echo $product->get_price(); ?>" />
 	<meta itemprop="priceCurrency" content="<?php echo get_woocommerce_currency(); ?>" />
 	<link itemprop="availability" href="http://schema.org/<?php echo $product->is_in_stock() ? 'InStock' : 'OutOfStock'; ?>" />
 

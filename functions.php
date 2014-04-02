@@ -649,12 +649,12 @@ function getFooterBrands() {
     $brandCat = get_term_by( 'slug', $slug, $taxonomy );
 
     $brandsId = get_term_children( $brandCat->term_id, $taxonomy );
-    $brands = [];
+    $brands = array();
 
     foreach( $brandsId as $id ) {
 
         $thumbnail_id = get_woocommerce_term_meta( $id, 'thumbnail_id', true );
-        
+
         $brands[$id] = array(
             'url' => get_term_link( $id, $taxonomy ),
             'image_url' => wp_get_attachment_url( $thumbnail_id )
@@ -663,4 +663,238 @@ function getFooterBrands() {
     }
 
     return $brands;
+}
+
+add_action( 'init', 'woocommerce_clear_cart_url' );
+
+function woocommerce_clear_cart_url() {
+    if ( isset( $_GET['clear-cart'] ) ) {
+        global $woocommerce;
+        $woocommerce->cart->empty_cart();
+    }
+}
+
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+
+// Our hooked in function - $fields is passed via the filter!
+function custom_override_checkout_fields( $fields ) {
+
+    $fields = array (
+        'billing' => array (
+            'billing_full_name' => array (
+                'label' => 'Имя',
+                'required' => 1,
+                'class' => Array (
+                    '0' => 'form-row-first'
+                )
+
+            ),
+            'billing_email' => array (
+                'label' => 'Email',
+                'required' => 1,
+                'class' => Array (
+                    '0' => 'form-row-first'
+                )
+            ),
+            'billing_phone' => array (
+                'label' => 'Телефон',
+                'required' => 1,
+                'class' => Array (
+                    '0' => 'form-row-first'
+                )
+            ),
+            'billing_address_1' =>  array(
+                'type' => 'textarea',
+                'class' => array (
+                    '0' => 'notes'
+                ),
+                'label' => 'Адрес доставки',
+                'placeholder' => ''
+            ),
+            'order_comments' => array (
+                'type' => 'textarea',
+                'class' => array (
+                    '0' => 'notes'
+                ),
+                'label' => 'Заметки к заказу',
+                'placeholder' => 'Примечания к вашему заказу, например, особые пожелания отделу доставки.'
+            )
+        ),
+        'account' => array (
+            'account_password' => array (
+                    'type' => 'password',
+                        'label' => 'Пароль к аккаунту',
+                        'required' => 1,
+                        'placeholder' => 'Пароль'
+                    )
+
+            ),
+
+        'order' => array()
+    );
+//            'billing_last_name' => Array
+//    (
+//        'label' => Фамилия
+//                    'required' => 1
+//                    'class' => Array
+//    (
+//        '0' => form-row-last
+//    )
+//
+//    'clear' => 1
+//                )
+//
+//            'billing_company' => Array
+//    (
+//        'label' => Название компании
+//                    'class' => Array
+//    (
+//        '0' => form-row-wide
+//    )
+//
+//                )
+//
+//            'billing_address_1' => Array
+//    (
+//        'label' => Адрес
+//                    'placeholder' => Полный почтовый адрес
+//                    'required' => 1
+//                    'class' => Array
+//    (
+//        '0' => form-row-wide
+//                            '1' => address-field
+//                        )
+//
+//                )
+//
+//            'billing_address_2' => Array
+//    (
+//        'placeholder' => Дом, квартира, номер и т.п. (необязательно)
+//                    'class' => Array
+//    (
+//        '0' => form-row-wide
+//                            '1' => address-field
+//                        )
+//
+//                    'required' =>
+//                )
+//
+//            'billing_city' => Array
+//    (
+//        'label' => Город
+//                    'placeholder' => Город
+//                    'required' => 1
+//                    'class' => Array
+//    (
+//        '0' => form-row-wide
+//                            '1' => address-field
+//                        )
+//
+//                )
+//
+//            'billing_state' => Array
+//    (
+//        'type' => state
+//                    'label' => Область
+//                    'placeholder' => Область
+//                    'required' => 1
+//                    'class' => Array
+//    (
+//        '0' => form-row-first
+//                            '1' => address-field
+//                        )
+//
+//                    'validate' => Array
+//    (
+//        '0' => state
+//    )
+//
+//                )
+//
+//            'billing_postcode' => Array
+//    (
+//        'label' => Почтовый индекс
+//                    'placeholder' => Почтовый индекс
+//                    'required' => 1
+//                    'class' => Array
+//    (
+//        '0' => form-row-last
+//                            '1' => address-field
+//                        )
+//
+//                    'clear' => 1
+//                    'validate' => Array
+//    (
+//        '0' => postcode
+//    )
+//
+//                )
+//
+//            'billing_email' => Array
+//    (
+//        'label' => Email-адрес
+//                    'required' => 1
+//                    'class' => Array
+//    (
+//        '0' => form-row-first
+//    )
+//
+//    'validate' => Array
+//    (
+//        '0' => email
+//    )
+//
+//                )
+//
+//            'billing_phone' => Array
+//    (
+//        'label' => Телефон
+//                    'required' => 1
+//                    'class' => Array
+//    (
+//        '0' => form-row-last
+//    )
+//
+//    'clear' => 1
+//                    'validate' => Array
+//    (
+//        '0' => phone
+//    )
+//
+//                )
+//
+//        )
+//
+//    'account' => Array
+//    (
+//        'account_password' => Array
+//            (
+//                'type' => password
+//                    'label' => Пароль к аккаунту
+//                    'required' => 1
+//                    'placeholder' => Пароль
+//                )
+//
+//        )
+//
+//    'order' => Array
+//    (
+//        'order_comments' => Array
+//            (
+//                'type' => textarea
+//                    'class' => Array
+//    (
+//        '0' => notes
+//    )
+//
+//    'label' => Заметки к заказу
+//                    'placeholder' => Примечания к вашему заказу, например, особые пожелания отделу доставки.
+//                )
+//
+//        )
+
+//)
+
+
+    return $fields;
 }
