@@ -25,6 +25,17 @@ switch( $template ) {
 		echo '<div id="primary" class="content-area"><div id="content" role="main" class="site-content twentyfourteen"><div class="tfwc">';
 		break;
 	default :
-		echo '<div id="middle"><div id="maincontent"><div class="content">';
+
+        if(!is_cart()) {
+            echo "<div id='middle'><div id='maincontent'><div class='lblock'>";
+
+            get_sidebar("category");
+
+            echo "</div><div class='content'>";
+        } else {
+            echo "<div id='middle'><div id='maincontent'><div id='content'>";
+        }
+
+
 		break;
 }

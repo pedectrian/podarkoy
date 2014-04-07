@@ -18,33 +18,33 @@ get_header(); ?>
 
 <div id="middle">
     <div id="maincontent">
-        <?php if(is_front_page()) : ?>
-            <div class="content">
-                <div class="lblock">
+        <?php if(!is_cart() && !is_checkout() && !is_checkout_pay_page()) : ?>
+            <div class="lblock">
+                <?php dynamic_sidebar( 'sidebar-4' ); ?>
+            </div>
+        <?php endif; ?>
+        <div <?php echo !is_cart() && !is_checkout() && !is_checkout_pay_page() ? 'class="content"' : ''; ?>>
+            <?php if(is_front_page()) : ?>
 
-                    <noindex>
-                        <?php dynamic_sidebar( 'sidebar-4' ); ?>
-                    </noindex>
-
-                </div>
                 <div class="sliderblock">
 
                     <div id="slides">
                         <div class="slides_container" style="display: block !important;">
-                            <img title="" src="<?php echo get_stylesheet_directory_uri(); ?>/images/slider/dostavka-01.jpg" width="660" height="220" alt="" style="">
+                            <img title="" src="<?php echo get_stylesheet_directory_uri(); ?>/images/slider/dostavka-01.jpg" width="690" height="225" alt="" style="">
                         </div>
                         <a href="#" class="prev"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/prev.png"  alt="Arrow Prev"></a>
                         <a href="#" class="next"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/next.png" alt="Arrow Next"></a>
                     </div>
                 </div>
                 <div class="clear"></div>
-            </div>
-            <div class="content new">
-                <?php dynamic_sidebar( 'sidebar-1' ); ?>
-                <div class="clear"></div>
-            </div>
-        <?php endif; ?>
-        <div class="content">
+                <div class="hits">
+                    <?php dynamic_sidebar( 'sidebar-1' ); ?>
+                    <div class="clear"></div>
+                </div>
+
+
+            <?php endif; ?>
+            <div class="">
             <?php
             if ( have_posts() ) :
 
@@ -52,12 +52,19 @@ get_header(); ?>
 
                     the_content();
 
+                    // If comments are open or we have at least one comment, load up the comment template.
+                    if ( comments_open() || get_comments_number() ) {
+                        comments_template();
+                    }
+
                 endwhile;
 
             endif;
             ?>
+            </div>
         </div>
     </div>
+</div>
 <?php
 
 get_footer();

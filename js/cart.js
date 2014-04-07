@@ -61,7 +61,7 @@ jQuery(document).ready(function(){
 
             form
                 .animate(
-                    { top: '-'+(form.offset().top - 100)+'px', left: '500px'},
+                    { top: '-'+(form.offset().top - 100)+'px', left: '300px'},
                     {
                         duration: 1000,
                         complete: function() {

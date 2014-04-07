@@ -8,7 +8,6 @@
  */
 
 get_header(); ?>
-фывафыва
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 			<?php
