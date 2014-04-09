@@ -110,10 +110,6 @@ jQuery(document).ready(function(){
             });
         },
 
-        confirm_cart_clear: function(){
-
-        },
-
         update_amounts: function(){
 
 

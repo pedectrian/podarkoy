@@ -50,4 +50,3 @@ if ( 1 == $wp_query->found_posts || ! woocommerce_products_will_display() )
 		}
 	?>
 </form>
-</div>
