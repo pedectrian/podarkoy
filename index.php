@@ -49,9 +49,13 @@ get_header(); ?>
             if ( have_posts() ) :
 
                 while ( have_posts() ) : the_post();
+                    echo "<h3 class='page-title'>";
+                        the_title();
+                    echo "</h3>";
 
-                    the_content();
-
+                    echo "<div class='page-content'>";
+                        the_content();
+                    echo "</div>";
                     // If comments are open or we have at least one comment, load up the comment template.
                     if ( comments_open() || get_comments_number() ) {
                         comments_template();

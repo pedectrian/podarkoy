@@ -553,3 +553,16 @@ a.button {
 .order-details tfoot th {
     text-align: right;
 }
+
+.page-title {
+    font-size: 25px;
+    line-height: 27px;
+    color: #a8bf87;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.page-content {
+    font-size: 15px;
+    line-height: 18px;
+}
