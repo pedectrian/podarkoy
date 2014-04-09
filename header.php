@@ -120,6 +120,21 @@
             <?php get_search_form(); ?>
 
         </div>
-        <div id="loginblock"></div>
+        <div id="loginblock">
+
+            <div id="WebLoginLayer0" style="position:relative">
+                <!-- login form section-->
+                <form method="post" name="loginfrm" action="">
+                    <input type="hidden" value="" name="rememberme">
+                    <fieldset style="border:0; margin:0; padding:0;">
+                        <a href="registration" id="regbutton">Регистрация</a>
+                        <label for="username"><input type="text" name="username" id="username" tabindex="1" value="логин" onfocus="if(this.value=='логин'){this.value='';}" onblur="if(this.value==''){this.value='логин';}"></label>
+                        <label for="password"><input type="password" name="password" id="password" tabindex="2" value="пароль" onfocus="if(this.value=='пароль'){this.value='';}" onblur="if(this.value==''){this.value='пароль';}"></label>
+                        <input type="submit" name="login" id="login-submit" value="Войти">
+                        <?php wp_nonce_field( 'woocommerce-login' ); ?>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
