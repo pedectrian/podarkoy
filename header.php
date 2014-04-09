@@ -123,6 +123,13 @@
         <div id="loginblock">
 
             <div id="WebLoginLayer0" style="position:relative">
+
+                <?php
+                    global $current_user;
+                    get_currentuserinfo();
+
+                    if($current_user->ID == 0):
+                ?>
                 <!-- login form section-->
                 <form method="post" name="loginfrm" action="">
                     <input type="hidden" value="" name="rememberme">
@@ -134,6 +141,9 @@
                         <?php wp_nonce_field( 'woocommerce-login' ); ?>
                     </fieldset>
                 </form>
+                <?php else: ?>
+                    Вы вошли как, <strong><a href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php echo $current_user->user_login; ?></a></strong>. <a href="<?php echo wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) ) ?>">Выйти? </a>
+                <?php endif; ?>
             </div>
         </div>
     </div>
