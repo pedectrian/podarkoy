@@ -27,7 +27,7 @@
             <div class="footercontent">
                 <ul id="footer_logos">
                     <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>" tppabs="http://pod-arkoy.ru/" class="home" title="На главную" rel="nofollow">На главную</a></li>
-                    <li><a style="line-height: 30px;" href="<?php echo esc_url( home_url( '/?page_id=64' ) ); ?>" title="Отзывы" rel="nofollow">Отзывы</a></li>
+                    <li><?php echo get_option('pod_arkoy_feedback_button'); ?></li>
                     <li><?php echo get_option('pod_arkoy_ya_informer'); ?></li>
                 </ul>
             </div>

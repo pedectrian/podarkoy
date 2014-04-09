@@ -546,6 +546,8 @@ function register_mysettings() {
     register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_phone' );
     register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_working_hours' );
 
+    register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_feedback_button' );
+
     register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_ya_metrika' );
     register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_ya_informer' );
 }
@@ -572,6 +574,11 @@ function pod_arkoy_settings_page() {
                 <tr valign="top">
                     <th scope="row">Часы работы</th>
                     <td><input style="width: 500px;" name="pod_arkoy_working_hours" value="<?php echo get_option('pod_arkoy_working_hours'); ?>"></td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row">Кнопка отзыва в футере</th>
+                    <td><textarea style="width: 500px; height: 75px" name="pod_arkoy_feedback_button"><?php echo get_option('pod_arkoy_feedback_button'); ?></textarea></td>
                 </tr>
 
                 <tr valign="top">
