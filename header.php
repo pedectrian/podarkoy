@@ -82,7 +82,6 @@
                                     <p>На сумму: <b class="cart-total">0</b> р.</p>
                                 </div>
                                 <div id="cartEmpty">В вашей <span class="carttitle">корзине</span> пусто</div>
-
                             <?php endif; ?>
 
 
@@ -92,7 +91,8 @@
 
                                 <div class="cart-order"><a href="<?php echo $cart ; ?>" id="butOrder">Оформить</a></div>
                                 <div class="clear"></div>
-                                <div><a href="?clear-cart" id="butEmptyCart">Очистить корзину</a></div>
+                                <div><a href="?clear-cart" id="emptyCart">Очистить корзину</a></div>
+                                <div id="stuffHelper" class="clear-confirm"><div><button class="shk-but" id="confirmButton">Да</button><button class="shk-but" id="cancelButton">Отмена</button></div></div>
                             </div>
 
                     </div>

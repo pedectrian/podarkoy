@@ -47,6 +47,24 @@ jQuery(document).ready(function(){
                 cart.send_to_cart(jQuery(this));
             });
 
+            jQuery('#emptyCart').on('click', function(e){
+                e.preventDefault();
+
+                jQuery('#stuffHelper').fadeIn('slow');
+            });
+
+
+            jQuery('.clear-confirm #confirmButton').on('click', function(e){
+                e.preventDefault();
+
+                document.location = 'http://' + document.location.host + document.location.pathname + '?clear-cart';
+            });
+
+            jQuery('.clear-confirm #cancelButton').on('click', function(e){
+                e.preventDefault();
+
+                jQuery('#stuffHelper').fadeOut('slow');
+            });
         },
 
         send_to_cart: function(el)
@@ -90,6 +108,10 @@ jQuery(document).ready(function(){
                 },
                 dataType: 'jsonp'
             });
+        },
+
+        confirm_cart_clear: function(){
+
         },
 
         update_amounts: function(){

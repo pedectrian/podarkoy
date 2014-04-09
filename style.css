@@ -566,3 +566,16 @@ a.button {
     font-size: 15px;
     line-height: 18px;
 }
+
+.clear-confirm {
+    border-radius: 5px;
+    bottom: 0;
+    left: 15px;
+    position: absolute;
+    z-index: 10000;
+    width: 150px;
+    padding: 5px;
+    background: #f5f5f5;
+    border: 1px solid #888;
+    display:none;
+}
