@@ -582,3 +582,12 @@ a.button {
 span.add_to_cart_button {
     display: none;
 }
+
+.lblock .menu-item a{
+    /*text-align: left !important;*/
+}
+
+.lblock .sub-menu a{
+    margin-left: 15px;
+    font-size: 15px;
+}
