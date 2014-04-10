@@ -57,7 +57,16 @@ jQuery(document).ready(function(){
             jQuery('.clear-confirm #confirmButton').on('click', function(e){
                 e.preventDefault();
 
-                document.location = 'http://' + document.location.host + document.location.pathname + '?clear-cart';
+                var url = 'http://' + document.location.host + document.location.pathname + '?clear-cart';
+
+
+                jQuery.ajax({
+                    type: "GET",
+                    url: url ,
+                    success: function(response){
+                        document.location.reload();
+                    },
+                });
             });
 
             jQuery('.clear-confirm #cancelButton').on('click', function(e){

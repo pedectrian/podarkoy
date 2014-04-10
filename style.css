@@ -401,7 +401,7 @@ a.itemmain { padding:0 !important;}
 }
 .lblock .widget-title { display:block; width: 235px; font-size:30px; font-family: Neucha; padding: 15px 10px 10px 10px;  text-align:center; letter-spacing: 0.3px;}
 .lblock a {  display:block; font-weight:bold; font-size:20px; margin:0; padding: 2px 5px 4px 5px; color: #362727 !important; text-align:center; text-decoration:none; letter-spacing: 0.3px; line-height: 26px;   }
-.lblock a:hover {background:url(images/menu_line2.png) no-repeat center 25px;}
+.lblock a:hover {background:url(images/menu_line2.png) no-repeat left 25px;}
 .products {
     padding: 0;
 }
@@ -583,11 +583,23 @@ span.add_to_cart_button {
     display: none;
 }
 
-.lblock .menu-item a{
-    /*text-align: left !important;*/
+.lblock div > ul .menu-item a{
+    text-align: left;
+    margin-left: 10px;
+}
+
+.lblock div > ul .menu-item > .sub-menu {
+    margin-left: 20px;
 }
 
 .lblock .sub-menu a{
     margin-left: 15px;
     font-size: 15px;
+}
+
+input[type="text"]:focus {
+    border-color: rgba(82, 168, 236, 0.8);
+    outline: 0px none;
+    z-index: 2;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(82, 168, 236, 0.6);
 }
