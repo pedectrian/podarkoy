@@ -49,9 +49,9 @@ get_header(); ?>
             if ( have_posts() ) :
 
                 while ( have_posts() ) : the_post();
-                    echo "<h3 class='page-title'>";
-                        the_title();
-                    echo "</h3>";
+//                    echo "<h3 class='page-title'>";
+  //                      the_title();
+//                    echo "</h3>";
 
                     echo "<div class='page-content'>";
                         the_content();
