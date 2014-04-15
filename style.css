@@ -626,3 +626,55 @@ input[type="text"]:focus {
 .form-submit input[type='submit'] {
     margin-left: 24px;
 }
+
+#customer_details .woocommerce-billing-fields {
+    width: 310PX;
+    margin: 0 auto;
+}
+
+#customer_details .woocommerce-billing-fields .input-checkbox {
+    width: 30px;
+}
+
+.login {
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.login .form-row-wide label {
+    width: 130px;
+}
+.login input[type='submit'] {
+    display: block !important;
+    margin: 10px 58px 0 0;
+    float: right;
+}
+
+.login label.inline {
+    width: 135px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.login #rememberme {
+    display: inline-block;
+    width: 15px;
+}
+.my_account_orders {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.my_account_orders tr td:first-child {
+    border-left: 3px #fff solid;
+    padding-left: 5px;
+}
+.my_account_orders tr:hover td {
+    cursor: pointer;
+}
+.my_account_orders tr:hover td:first-child {
+   border-left: 3px #ccc solid;
+}
+.order-actions a.button {
+    margin-top: 5px;
+}
