@@ -510,6 +510,18 @@ function twentyfourteen_wp_title( $title, $sep ) {
 add_filter( 'wp_title', 'twentyfourteen_wp_title', 10, 2 );
 
 
+add_action('init', 'podarkoy_breadcrumbs');
+
+function podarkoy_breadcrumbs() {
+    if (get_option('pod_arkoy_breadcrumbs') == 2) {
+        remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+    }
+}
+
+function podarkoy_remove_add_to_cart_button(){
+    remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+}
+add_action('init','podarkoy_remove_add_to_cart_button');
 
 add_action( '_podarkoy_woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 add_action( '_podarkoy_woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
@@ -547,6 +559,7 @@ function register_mysettings() {
     register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_working_hours' );
 
     register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_feedback_button' );
+    register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_breadcrumbs' );
 
     register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_ya_metrika' );
     register_setting( 'pod_arkoy-settings-group', 'pod_arkoy_ya_informer' );
@@ -579,6 +592,14 @@ function pod_arkoy_settings_page() {
                 <tr valign="top">
                     <th scope="row">Кнопка отзыва в футере</th>
                     <td><textarea style="width: 500px; height: 75px" name="pod_arkoy_feedback_button"><?php echo get_option('pod_arkoy_feedback_button'); ?></textarea></td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row">Хлебные крошки (путь страницы)</th>
+                    <td>
+                        <label><input type="radio" name="pod_arkoy_breadcrumbs" value="1" <?php checked(get_option('pod_arkoy_breadcrumbs'), 1); ?>>Вкл</label>
+                        <label><input type="radio" name="pod_arkoy_breadcrumbs" value="2" <?php checked(get_option('pod_arkoy_breadcrumbs'), 2); ?>>Выкл</label>
+                    </td>
                 </tr>
 
                 <tr valign="top">
@@ -739,168 +760,6 @@ function custom_override_checkout_fields( $fields ) {
 
         'order' => array()
     );
-//            'billing_last_name' => Array
-//    (
-//        'label' => Фамилия
-//                    'required' => 1
-//                    'class' => Array
-//    (
-//        '0' => form-row-last
-//    )
-//
-//    'clear' => 1
-//                )
-//
-//            'billing_company' => Array
-//    (
-//        'label' => Название компании
-//                    'class' => Array
-//    (
-//        '0' => form-row-wide
-//    )
-//
-//                )
-//
-//            'billing_address_1' => Array
-//    (
-//        'label' => Адрес
-//                    'placeholder' => Полный почтовый адрес
-//                    'required' => 1
-//                    'class' => Array
-//    (
-//        '0' => form-row-wide
-//                            '1' => address-field
-//                        )
-//
-//                )
-//
-//            'billing_address_2' => Array
-//    (
-//        'placeholder' => Дом, квартира, номер и т.п. (необязательно)
-//                    'class' => Array
-//    (
-//        '0' => form-row-wide
-//                            '1' => address-field
-//                        )
-//
-//                    'required' =>
-//                )
-//
-//            'billing_city' => Array
-//    (
-//        'label' => Город
-//                    'placeholder' => Город
-//                    'required' => 1
-//                    'class' => Array
-//    (
-//        '0' => form-row-wide
-//                            '1' => address-field
-//                        )
-//
-//                )
-//
-//            'billing_state' => Array
-//    (
-//        'type' => state
-//                    'label' => Область
-//                    'placeholder' => Область
-//                    'required' => 1
-//                    'class' => Array
-//    (
-//        '0' => form-row-first
-//                            '1' => address-field
-//                        )
-//
-//                    'validate' => Array
-//    (
-//        '0' => state
-//    )
-//
-//                )
-//
-//            'billing_postcode' => Array
-//    (
-//        'label' => Почтовый индекс
-//                    'placeholder' => Почтовый индекс
-//                    'required' => 1
-//                    'class' => Array
-//    (
-//        '0' => form-row-last
-//                            '1' => address-field
-//                        )
-//
-//                    'clear' => 1
-//                    'validate' => Array
-//    (
-//        '0' => postcode
-//    )
-//
-//                )
-//
-//            'billing_email' => Array
-//    (
-//        'label' => Email-адрес
-//                    'required' => 1
-//                    'class' => Array
-//    (
-//        '0' => form-row-first
-//    )
-//
-//    'validate' => Array
-//    (
-//        '0' => email
-//    )
-//
-//                )
-//
-//            'billing_phone' => Array
-//    (
-//        'label' => Телефон
-//                    'required' => 1
-//                    'class' => Array
-//    (
-//        '0' => form-row-last
-//    )
-//
-//    'clear' => 1
-//                    'validate' => Array
-//    (
-//        '0' => phone
-//    )
-//
-//                )
-//
-//        )
-//
-//    'account' => Array
-//    (
-//        'account_password' => Array
-//            (
-//                'type' => password
-//                    'label' => Пароль к аккаунту
-//                    'required' => 1
-//                    'placeholder' => Пароль
-//                )
-//
-//        )
-//
-//    'order' => Array
-//    (
-//        'order_comments' => Array
-//            (
-//                'type' => textarea
-//                    'class' => Array
-//    (
-//        '0' => notes
-//    )
-//
-//    'label' => Заметки к заказу
-//                    'placeholder' => Примечания к вашему заказу, например, особые пожелания отделу доставки.
-//                )
-//
-//        )
-
-//)
 
 
     return $fields;

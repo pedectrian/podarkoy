@@ -187,8 +187,9 @@ border-radius:3px; -moz-border-radius:3px; -khtml-border-radius:3px;}
 a#regbutton { padding: 0 20px 0 0;}
 #login-submit {
 float: right; margin: 1px 0 0 3px; width: 70px;	height: 25px;	padding: 1px 0 0px 0;	background: url(images/button-login.png) no-repeat center center;	border: none;	font-size: 13px;	letter-spacing: 0.1ex;	color: #FFFFFF; cursor:pointer;}
-.button { text-shadow: none !important; margin: 1px 0 0 3px; width: 70px;	height: 25px;	padding-top: 1px;	background: url(images/button-login.png) no-repeat center center;	border: none;	font-size: 13px;	letter-spacing: 0.1ex;	color: #FFFFFF; cursor:pointer;}
-.button100 {margin: 1px 0 0 0; width: 100px;	height: 25px;	padding-top: 1px;	background: url(images/button100.png) no-repeat center center;	border: none;	font-size: 13px;	letter-spacing: 0.1ex;	color: #FFFFFF; cursor:pointer;}
+.button{ text-shadow: none !important; margin: 1px 0 0 3px; width: 70px;	height: 25px;	padding-top: 1px;	background: url(images/button-login.png) no-repeat center center;	border: none;	font-size: 13px;	letter-spacing: 0.1ex;	color: #FFFFFF; cursor:pointer;}
+.button100,
+.form-submit input[type='submit'] {margin: 1px 0 0 0; width: 100px;	height: 25px;	padding-top: 1px;	background: url(images/button100.png) no-repeat center center;	border: none;	font-size: 13px;	letter-spacing: 0.1ex;	color: #FFFFFF; cursor:pointer;}
 a.button { display:block; float: right; margin: -8px 0 0 3px; width: 70px;	height: 25px;	padding: 8px 18px 0 0;	background: url(images/button-login.png) no-repeat center center;	border: none;	font-size: 13px;	letter-spacing: 0.1ex;	color: #FFFFFF !important; cursor:pointer; text-decoration:none !important; font-weight:normal !important;}
 p.message { text-align: center;}
 /*  userprofile  */
@@ -602,4 +603,26 @@ input[type="text"]:focus {
     outline: 0px none;
     z-index: 2;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(82, 168, 236, 0.6);
+}
+
+.icon-user {background-position: -168px 0;}
+.input-prepend {
+    margin-bottom: 10px;
+}
+.input-prepend .add-on {
+    margin-right: 10px;
+}
+.comment-form {
+    padding: 10px 0;
+}
+.comment-form-comment {
+    margin-top: 0;
+}
+.comment-form-comment textarea{
+    margin-left: 24px;
+    height: 50px;
+}
+
+.form-submit input[type='submit'] {
+    margin-left: 24px;
 }
