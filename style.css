@@ -678,3 +678,12 @@ input[type="text"]:focus {
 .order-actions a.button {
     margin-top: 5px;
 }
+
+.page-numbers {
+    margin: 0 auto;
+    display: inline-block;
+}
+.page-numbers .li {
+    display: inline-block;
+    list-style: none;
+}
