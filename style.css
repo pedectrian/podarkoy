@@ -147,10 +147,10 @@ p.behaviour { font-size:14px; padding: 2px 0; text-shadow: #ffffff 1px 1px 0;}
 
 
 .shk-inner { width: 758px; margin-bottom: 16px; margin:0;}
-.art-inner, .beh-inner, .price-inner, .buy-inner { display:block; float:left; background:#dad3c0; padding: 5px 2px 6px 4px; margin: 1px; border: 1px #FFFFFF solid; text-shadow: #fff 1px 1px 0; }
+.art-inner, .beh-inner, .price-inner, .buy-inner { text-overflow: ellipsis;white-space: nowrap;overflow:hidden;display:block; float:left; background:#dad3c0; padding: 5px 2px 6px 4px; margin: 1px; border: 1px #FFFFFF solid; text-shadow: #fff 1px 1px 0; }
 .art-inner { width: 100px;}
-.beh-inner { width: 478px;}
-.price-inner { width: 57px; font-weight:bold; text-shadow: #EEEADF 1px 1px 0;}
+.beh-inner { width: 410px;}
+.price-inner { width: 77px; font-weight:bold; text-shadow: #EEEADF 1px 1px 0;}
 .buy-inner { width: 83px; background:#9e8d6d; border-radius:3px; -moz-border-radius:3px; -khtml-border-radius:3px; text-align:center; padding: 4px 2px 6px 4px !important; height: 16px;  }
 .buy-inner input { margin:0 !important; padding:0 !important; height: 16px;}
 .buy-inner .shk-but { border: none; background: none; cursor:pointer; padding:0 !important; margin:0 !important; font-size: 13px;	letter-spacing: 0.1ex; color: #FFFFFF;}
@@ -686,4 +686,7 @@ input[type="text"]:focus {
 .page-numbers li {
     display: inline-block;
     list-style: none;
+}
+#maincontent > .related.products {
+    padding-left: 248px;
 }
