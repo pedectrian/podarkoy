@@ -107,6 +107,7 @@
     </div>
     <div id="head-contacts">
         <div class="head-phone">
+            <?php echo get_option('pod_arkoy_working_hours'); ?>
         </div>
         <div class="head-skype">
             <?php echo get_option('pod_arkoy_phone'); ?>

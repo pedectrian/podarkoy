@@ -43,8 +43,8 @@ hr { color:#FFFFFF; border: 1px #FFFFFF solid;}
 #top-menu { width: 658px; padding: 0 15px 10px 15px; margin:0px; color:#333;}
 
 #head-contacts { width: 975px; height: 40px; font-size:24px; font-family: Arial, Helvetica, sans-serif; color: #4b3f29;}
-.head-phone { float: left; width: 307px; padding: 6px 0 0 180px; height: 30px; }
-.head-skype { float: left; width: 267px; padding: 6px 0 0 145px; background:url(images/phone.png) no-repeat 105px top; height: 30px;}
+.head-phone { float: left; width: 307px; padding: 6px 20px 0 280px; height: 30px; text-align: right;}
+.head-skype { float: left; width: 267px; padding: 6px 0 0 45px; background:url(images/phone.png) no-repeat 0px top; height: 30px;}
 
 .topmenu { width: 975px; height: 49px; background: url(images/menu_bg.png) no-repeat -1px; font-style: normal; font-family: Neucha; font-size:26px; font-weight:normal !important; font-style:normal; letter-spacing: 0.2px;}
 .topmenu p { margin:0; padding: 15px 20px 0 20px; text-align:center; color:#FFFFFF;}
