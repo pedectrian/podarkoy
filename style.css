@@ -40,11 +40,11 @@ hr { color:#FFFFFF; border: 1px #FFFFFF solid;}
 
 .top { width: 975px; height: 200px; padding:0;}
 
-#top-menu { width: 658px; padding: 0 15px 10px 15px; margin:0px; color:#333;}
+#top-menu { width: 658px; padding: 0 15px 10px 15px; margin:0; color:#333;}
 
 #head-contacts { width: 975px; height: 40px; font-size:24px; font-family: Arial, Helvetica, sans-serif; color: #4b3f29;}
-.head-phone { float: left; width: 307px; padding: 6px 20px 0 280px; height: 30px; text-align: right;}
-.head-skype { float: left; width: 267px; padding: 6px 0 0 45px; background:url(images/phone.png) no-repeat 0px top; height: 30px;}
+.head-phone { float: left; width: 560px; padding: 6px 20px 0 0; height: 30px; text-align: right;}
+.head-skype { float: right; width: 267px; padding: 6px 80px 0 45px; background:url(images/phone.png) no-repeat 0px top; height: 30px;}
 
 .topmenu { width: 975px; height: 49px; background: url(images/menu_bg.png) no-repeat -1px; font-style: normal; font-family: Neucha; font-size:26px; font-weight:normal !important; font-style:normal; letter-spacing: 0.2px;}
 .topmenu p { margin:0; padding: 15px 20px 0 20px; text-align:center; color:#FFFFFF;}
@@ -400,8 +400,37 @@ a.itemmain { padding:0 !important;}
 .lblock {
     font-family: Neucha;
 }
-.lblock .widget-title { display:block; width: 235px; font-size:30px; font-family: Neucha; padding: 15px 10px 10px 10px;  text-align:center; letter-spacing: 0.3px;}
-.lblock a {  display:block; font-weight:bold; font-size:20px; margin:0; padding: 2px 5px 4px 5px; color: #362727 !important; text-align:center; text-decoration:none; letter-spacing: 0.3px; line-height: 26px;   }
+.lblock ul#menu-catalog-menu {
+    margin-top: 0;
+}
+.lblock .widget-title,
+.lblock ul#menu-catalog-menu > li:first-child a {
+    background: none;
+    display: block;
+    width: 235px;
+    font-size: 30px !important;
+    font-weight: normal;
+    font-family: Neucha;
+    padding: 15px 10px 10px 10px;
+    text-align: center;
+    letter-spacing: 0.3px;
+    margin-left: 0;
+
+    text-shadow: rgb(255, 255, 255) 1px 1px 0;
+}
+.lblock ul#menu-catalog-menu > li:first-child a:hover {background:url(images/menu_line2.png) no-repeat center 45px;}
+.lblock a {
+    display:block;
+    font-weight:bold;
+    font-size:20px;
+    margin:0;
+    padding: 2px 5px 4px 5px;
+    color: #362727 !important;
+    text-align:center;
+    text-decoration:none;
+    letter-spacing: 0.3px;
+    line-height: 26px;
+}
 .lblock a:hover {background:url(images/menu_line2.png) no-repeat left 25px;}
 .products {
     padding: 0;
@@ -689,4 +718,12 @@ input[type="text"]:focus {
 }
 #maincontent > .related.products {
     padding-left: 248px;
+}
+.archive-page-title {
+    font-family: Neucha;
+    font-size: 23px;
+    letter-spacing: 1.2px;
+}
+.term-description {
+    margin: 20px 0;
 }

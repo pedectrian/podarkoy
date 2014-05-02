@@ -12,13 +12,11 @@
         <div id="footer">
             <div class="bottomblock">
                 <p class="titleblock">Бренды:</p>
-                <?php $brands = getFooterBrands(); ?>
-
                 <p style="text-align: center;">
-                    <?php foreach($brands as $category) : ?>
-                        <a href="<?php echo $category['url']; ?>" >
+                    <?php foreach(footerBrands() as $brand) : ?>
+                        <a title="<?php echo $brand['title']; ?>" href="<?php echo $brand['url']; ?>" >
                             <?php
-                                echo '<img src="' . $category['image_url'] . '" />';
+                                echo '<img src="' . $brand['image_url'] . '" />';
                             ?>
                         </a>
                     <?php endforeach; ?>
